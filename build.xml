@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SMA-RoboCup-JADE" default="run" basedir=".">
+
+    <property name="src.dir"    value="src"/>
+    <property name="out.dir"    value="out"/>
+    <property name="lib.dir"    value="lib"/>
+    <property name="jar.file"   value="sma_robocup.jar"/>
+
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="*.jar"/>
+        <pathelement location="${out.dir}"/>
+    </path>
+
+    <target name="clean">
+        <delete dir="${out.dir}"/>
+        <echo>✅ Nettoyé.</echo>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${out.dir}"/>
+        <javac srcdir="${src.dir}"
+               destdir="${out.dir}"
+               encoding="UTF-8"
+               includeantruntime="false"
+               classpathref="classpath">
+            <compilerarg value="-Xlint:unchecked"/>
+        </javac>
+        <echo>✅ Compilation terminée.</echo>
+    </target>
+
+    <target name="run" depends="compile">
+        <java classname="robocup.Main"
+              fork="true"
+              classpathref="classpath">
+            <jvmarg value="-Xmx256m"/>
+        </java>
+    </target>
+
+    <target name="run-jade-gui" depends="compile">
+        <java classname="jade.Boot"
+              fork="true"
+              classpathref="classpath">
+            <jvmarg value="-Xmx256m"/>
+            <arg value="-gui"/>
+            <arg value="-agents"/>
+            <arg value="AgentInteractionHumaine:robocup.agents.HumanInteractionAgent;AgentCoordinateurTaches:robocup.agents.TaskCoordinatorAgent;AgentNavigation:robocup.agents.NavigationAgent;AgentManipulation:robocup.agents.ManipulationAgent;AgentSurveillance:robocup.agents.SurveillanceAgent;Dashboard:robocup.gui.DashboardAgent"/>
+        </java>
+    </target>
+
+    <target name="jar" depends="compile">
+        <jar destfile="${jar.file}"
+             basedir="${out.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="robocup.Main"/>
+                <attribute name="Class-Path" value="lib/jade.jar"/>
+            </manifest>
+        </jar>
+        <echo>✅ JAR créé : ${jar.file}</echo>
+    </target>
+
+</project>
