@@ -11,18 +11,6 @@ Ce projet implémente un Système Multi-Agents pour **RoboCup@Home** en utilisan
 la plateforme JADE, qui est conforme au standard **FIPA** (Foundation for
 Intelligent Physical Agents).
 
-### Différences clés avec une implémentation Python from-scratch
-
-| Aspect | Python from-scratch | JADE |
-|---|---|---|
-| Language | Python 3 | Java 11+ |
-| Messages | Dataclass custom | `ACLMessage` FIPA standard |
-| Contract-Net | Codé manuellement | `ContractNetInitiator/Responder` |
-| Threads | `threading.Thread` | Behaviours JADE (scheduler interne) |
-| Annuaire | `Environment` custom | DF (Directory Facilitator) JADE |
-| Monitoring | GUI custom Tkinter | RMA + Sniffer JADE intégrés |
-
----
 
 ## 🏗️ Architecture
 
