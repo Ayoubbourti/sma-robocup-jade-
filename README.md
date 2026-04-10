@@ -169,8 +169,10 @@ Une fois lancé avec `ant run-jade-gui`, tu peux :
 4. **Introspector** → inspecter les behaviours actifs de chaque agent
 
 ---
+## 👤 Auteur
 
-## Auteur
+**AYOUB BOURTI**  
+📧 ayoubbourti3@gmail.com
 
 Projet universitaire Master Informatique — Systèmes Multi-Agents  
 Plateforme : JADE 4.x — https://jade.tilab.com
