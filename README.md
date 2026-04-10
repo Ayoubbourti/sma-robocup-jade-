@@ -174,5 +174,5 @@ Une fois lancé avec `ant run-jade-gui`, tu peux :
 **AYOUB BOURTI**  
 📧 ayoubbourti3@gmail.com
 
-Projet universitaire Master Informatique — Systèmes Multi-Agents  
+Projet universitaire Master AI & DATA SCIENCE — Systèmes Multi-Agents  
 Plateforme : JADE 4.x — https://jade.tilab.com
